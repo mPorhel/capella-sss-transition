@@ -74,6 +74,7 @@ public class FinalizeSubsystemTransitionActivity extends AbstractActivity {
 
       Resource transformationResource = transformationRoot.eResource();
       Resource targetResource = (Resource) context.get(ITransitionConstants.TRANSITION_TARGET_RESOURCE);
+      Resource sourceResource = (Resource) context.get(ITransitionConstants.TRANSITION_SOURCE_RESOURCE);
 
       // unless we transform directly into the target resource
       // inter and crossphase transform into a resourceless model, so that in these cases the transformationResource is null
@@ -95,7 +96,7 @@ public class FinalizeSubsystemTransitionActivity extends AbstractActivity {
       // Remember that the selected target file is loaded into 
       // the editing domain of the source resource to process the transformation.
       // now we're done with it and need to unload it. (The resource was already saved in FinalizeTransitionAction, so theres no need to save it again here)
-      if (targetResource != null) {
+      if (targetResource != null && (targetResource != sourceResource)) {
         targetResource.unload();
         targetResource.getResourceSet().getResources().remove(targetResource);
       }

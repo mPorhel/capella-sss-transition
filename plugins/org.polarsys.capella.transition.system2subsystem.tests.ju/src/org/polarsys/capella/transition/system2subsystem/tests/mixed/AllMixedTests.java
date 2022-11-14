@@ -110,6 +110,10 @@ public class AllMixedTests extends BasicTestSuite {
     tests.addAll(testsFor(CopyImagesAndUpdatePathsTest.CopyImagesAndUpdatePathsInterphasesTest.class));
     tests.addAll(testsFor(CopyImagesAndUpdatePathsTest.CopyImagesAndUpdatePathsCrossphasesTest.class));
     tests.add(new CopyImagesAndUpdatePathsTest.CopyImagesAndUpdatePathsMultiphasesTest());
+    
+    tests.add(new ReflexiveTransitionTest.Interphases());
+    tests.add(new ReflexiveTransitionTest.Crossphases());
+    tests.add(new ReflexiveTransitionTest.Multiphase());
 
     return tests;
   }
